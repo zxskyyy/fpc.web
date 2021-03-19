@@ -6,8 +6,9 @@ d3.dsv(";", "../fpc.web/data/pets-citizens.csv").then(
     function(csvtemp){csvdata = csvtemp; console.log(csvdata); isCsvLoaded = true;}
 );
 
-while(isCsvLoaded == false){ 
-    //do nothing 
+while(true){   
+    if (isCsvLoaded){
+        console.log("loaded");
+        break;
+    }
 }
-
-console.log("loaded");

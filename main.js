@@ -13,25 +13,25 @@ function tableStart(pageSize, pageNumber){
     //table gets built normally using the elementsOnPage information
     for(let i = (pageSize*pageNumber)-1; i<(pageNumber*pageSize)+pageSize; i++){
         //we create a row
-        let newTableRow = document.createElement("tr");
+        let newTableRow = document.createElement('tr');
         //we create and append all children components to the row
         //microchip;species;sex;size;potentDangerous;neighborhood
-        let newRowMicrochip = document.createElement("th");
+        let newRowMicrochip = document.createElement('th');
         newRowMicrochip = csvdata[i].microchip;
         newTableRow.appendChild(newRowMicrochip);
-        let newRowSpecies = document.createElement("th");
+        let newRowSpecies = document.createElement('th');
         newRowSpecies = csvdata[i].species;
         newTableRow.appendChild(newRowSpecies);
-        let newRowSex = document.createElement("th");
+        let newRowSex = document.createElement('th');
         newRowSex = csvdata[i].sex;
         newTableRow.appendChild(newRowSex);
-        let newRowSize = document.createElement("th");
+        let newRowSize = document.createElement('th');
         newRowSize = csvdata[i].size;
         newTableRow.appendChild(newRowSize);
-        let newRowPotentDangerous = document.createElement("th");
+        let newRowPotentDangerous = document.createElement('th');
         newRowPotentDangerous = csvdata[i].potentDangerous;
         newTableRow.appendChild(newRowPotentDangerous);
-        let newRowNeighborhood = document.createElement("th");
+        let newRowNeighborhood = document.createElement('th');
         newRowNeighborhood = csvdata[i].neighborhood;
         newTableRow.appendChild(newRowNeighborhood);
     }

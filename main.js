@@ -11,8 +11,6 @@ d3.dsv(";", "../fpc.web/data/pets-citizens.csv").then(
 console.log(csvdata);
 
 function tableStart(pageSize, pageNumber){
-    //se borra todo
-    //table gets built normally using the elementsOnPage information
     for(let i = (pageSize*pageNumber)-1; i<(pageNumber*pageSize)+pageSize; i++){
         //we create a row
         let newTableRow = document.createElement('tr');
@@ -36,8 +34,8 @@ function tableStart(pageSize, pageNumber){
         let newRowNeighborhood = document.createElement('th');
         newRowNeighborhood.innerHTML = csvdata[i].neighborhood;
         newTableRow.appendChild(newRowNeighborhood);
+        document.getElementById("sampleRow").appendChild(newTableRow);
     }
-
 }
 
 //Code that really doesn't matter bc I'm stupid

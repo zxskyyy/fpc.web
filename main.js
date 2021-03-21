@@ -34,7 +34,7 @@ function tableStart(pageSize, pageNumber){
         let newRowNeighborhood = document.createElement('th');
         newRowNeighborhood.innerHTML = csvdata[i].neighborhood;
         newTableRow.appendChild(newRowNeighborhood);
-        document.getElementById("actualTable").appendChild(newTableRow);
+        document.getElementById("tableBody").appendChild(newTableRow);
     }
 }
 

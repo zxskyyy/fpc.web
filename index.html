@@ -22,6 +22,21 @@
             width: 400px;
             text-align: left;
             font-family: Arial, Helvetica, sans-serif;
+            border-radius: 50% 50% 0% 0%;
+            overflow: hidden;
+            box-shadow: 0 0 20px black;
+        }
+
+        thead {
+            background-color: rgb(253, 68, 130);
+            color: white;
+            padding: 10px 10px;
+        }
+
+        tbody{
+            background-color: rgb(255, 149, 185);
+            color: white;
+            padding: 10px 10px;
         }
 
 
@@ -38,12 +53,17 @@
 <!--microchip;species;sex;size;potentDangerous;neighborhood-->
 <table id="actualTable" class="petTable">
     <tr class="sampleRow">
-        <th>microchip</th>
-        <th>species</th>
-        <th>sex</th>
-        <th>size</th>
-        <th>potentDangerous</th>
-        <th>neighborhood</th>
+        <thead>
+            <th>microchip</th>
+            <th>species</th>
+            <th>sex</th>
+            <th>size</th>
+            <th>potentDangerous</th>
+            <th>neighborhood</th>
+        </thead>
+        <tbody>
+
+        </tbody>
     </tr>
 </table>
 

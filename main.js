@@ -5,7 +5,7 @@ let csvdata = [];
 
 //data load
 d3.dsv(";", "../fpc.web/data/pets-citizens.csv").then(
-    function(csvtemp){csvdata = csvtemp; console.log(csvdata+" loaded succesfully"); tableStart(5,1)}
+    function(csvtemp){csvdata = csvtemp; console.log(csvdata); tableStart(5,1)}
 );
 
 console.log(csvdata);
@@ -19,22 +19,22 @@ function tableStart(pageSize, pageNumber){
         //we create and append all children components to the row
         //microchip;species;sex;size;potentDangerous;neighborhood
         let newRowMicrochip = document.createElement('th');
-        newRowMicrochip = csvdata[i].microchip;
+        newRowMicrochip.innerHTML = csvdata[i].microchip;
         newTableRow.appendChild(newRowMicrochip);
         let newRowSpecies = document.createElement('th');
-        newRowSpecies = csvdata[i].species;
+        newRowSpecies.innerHTML = csvdata[i].species;
         newTableRow.appendChild(newRowSpecies);
         let newRowSex = document.createElement('th');
-        newRowSex = csvdata[i].sex;
+        newRowSex.innerHTML = csvdata[i].sex;
         newTableRow.appendChild(newRowSex);
         let newRowSize = document.createElement('th');
-        newRowSize = csvdata[i].size;
+        newRowSize.innerHTML = csvdata[i].size;
         newTableRow.appendChild(newRowSize);
         let newRowPotentDangerous = document.createElement('th');
-        newRowPotentDangerous = csvdata[i].potentDangerous;
+        newRowPotentDangerous.innerHTML = csvdata[i].potentDangerous;
         newTableRow.appendChild(newRowPotentDangerous);
         let newRowNeighborhood = document.createElement('th');
-        newRowNeighborhood = csvdata[i].neighborhood;
+        newRowNeighborhood.innerHTML = csvdata[i].neighborhood;
         newTableRow.appendChild(newRowNeighborhood);
     }
 

@@ -1,6 +1,8 @@
 
 let csvdata = [];
 
+//lol
+
 //data load
 d3.dsv(";", "../fpc.web/data/pets-citizens.csv").then(
     function(csvtemp){csvdata = csvtemp; console.log(csvdata+" loaded succesfully"); tableStart(5,1)}

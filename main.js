@@ -1,5 +1,6 @@
 
 let csvdata = [];
+let page = 1;
 
 //I am gonna fuck git's shit up
 
@@ -10,8 +11,35 @@ d3.dsv(";", "../fpc.web/data/pets-citizens.csv").then(
 
 console.log(csvdata);
 
+function tableDown(){
+    let tableBody = document.getElementById("tableBody");
+    tableBody.textContent = '';
+    if(page == 1){
+        tableStart(5,1);
+    } else {
+        page = page -1;
+        tableStart(5,page);
+    }
+}
+
+function tableUp(){
+    let tableBody = document.getElementById("tableBody");
+    tableBody.textContent = '';
+    if(page == 1){
+        tableStart(5,1);
+    } else {
+        page = page +1;
+        tableStart(5,page);
+    }
+}
+
 function tableStart(pageSize, pageNumber){
+    let tableBody = document.getElementById("tableBody");
+    tableBody.textContent = '';
     for(let i = (pageSize*pageNumber)-1; i<(pageNumber*pageSize)+pageSize; i++){
+        if(i>23411){
+            break;
+        }
         //we create a row
         let newTableRow = document.createElement('tr');
         //we create and append all children components to the row

@@ -33,6 +33,16 @@ function tableUp(){
     }
 }
 
+function stringify(){
+    for(let i=0; i<csvdata.length; i++){
+        json[i] = JSON.stringify(csvdata[i]);
+    }
+}
+
+function parse(index){
+    return JSON.parse(json[i]);
+}
+
 function tableStart(pageSize, pageNumber){
     let tableBody = document.getElementById("tableBody");
     tableBody.textContent = '';
@@ -105,15 +115,5 @@ function tableStart(pageSize, pageNumber){
         }
         newExtraRow.appendChild(newExtraPath);
         document.getElementById("extraBody").appendChild(newExtraRow);
-    }   
-
-    function stringify(){
-        for(let i=0; i<csvdata.length; i++){
-            json[i] = JSON.stringify(csvdata[i]);
-        }
-    }
-
-    function parse(index){
-        return JSON.parse(json[i]);
     }
 }

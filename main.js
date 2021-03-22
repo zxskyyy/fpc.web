@@ -1,6 +1,8 @@
 
 let csvdata = [];
 let page = 1;
+let json = [];
+//do this in the respective function
 
 //data load
 d3.dsv(";", "../fpc.web/data/pets-citizens.csv").then(
@@ -38,46 +40,80 @@ function tableStart(pageSize, pageNumber){
         if(i>23411){
             break;
         }
-        //we create a row
+        //we create two new rows
         let newTableRow = document.createElement('tr');
+        let newExtraRow = document.createElement('tr');
+
         //we create and append all children components to the row
         //microchip;species;sex;size;potentDangerous;neighborhood
         let newRowMicrochip = document.createElement('th');
-        newRowMicrochip.innerHTML = csvdata[i].microchip;
+        newRowMicrochip.innerHTML = parse[i].microchip;
         newTableRow.appendChild(newRowMicrochip);
         let newRowSpecies = document.createElement('th');
-        newRowSpecies.innerHTML = csvdata[i].species;
+        newRowSpecies.innerHTML = parse[i].species;
         newTableRow.appendChild(newRowSpecies);
         let newRowSex = document.createElement('th');
-        newRowSex.innerHTML = csvdata[i].sex;
+        newRowSex.innerHTML = parse[i].sex;
         newTableRow.appendChild(newRowSex);
         let newRowSize = document.createElement('th');
-        newRowSize.innerHTML = csvdata[i].size;
+        newRowSize.innerHTML = parse[i].size;
         newTableRow.appendChild(newRowSize);
         let newRowPotentDangerous = document.createElement('th');
-        newRowPotentDangerous.innerHTML = csvdata[i].potentDangerous;
+        newRowPotentDangerous.innerHTML = parse[i].potentDangerous;
         newTableRow.appendChild(newRowPotentDangerous);
         let newRowNeighborhood = document.createElement('th');
-        newRowNeighborhood.innerHTML = csvdata[i].neighborhood;
+        newRowNeighborhood.innerHTML = parse[i].neighborhood;
         newTableRow.appendChild(newRowNeighborhood);
+        let newButton = document.createElement('button');
+        newButton.innerHTML = "Actualizar";
+        newButton.addEventListener('click', theFunction(newRowMicrochip.innerHTML, pageSize, pageNumber));
+        newTableRow.appendChild(newButton);
         document.getElementById("tableBody").appendChild(newTableRow);
+
+        //the second table with the extra stuff
+        let newExtraMicrochip = document.createElement('th');
+        newExtraMicrochip.innerHTML = parse[i].microchip;
+        newExtraRow.appendChild(newExtraMicrochip);
+        let newExtraRace = document.createElement('th');
+        if(parse[i].race != undefined){
+            newExtraRace.innerHTML = parse[i].race;
+        } else {
+            newExtraRace.innerHTML = "";
+        }
+        newExtraRow.appendChild(newExtraRace);
+        let newExtraOwner = document.createElement('th');
+        if(parse[i].owner != undefined){
+            newExtraOwner.innerHTML = parse[i].owner;
+        } else {
+            newExtraOwner.innerHTML = "";
+        }
+        newExtraRow.appendChild(newExtraOwner);
+        let newExtraAdress = document.createElement('th');
+        if(parse[i].adress != undefined){
+            newExtraAdress.innerHTML = parse[i].adress;
+        } else {
+            newExtraAdress.innerHTML = "";
+        }
+        newExtraRow.appendChild(newExtraAdress);
+        let newExtraPath = document.createElement('th');
+        if(parse[i].pic != undefined){
+            let newImage = document.createElement('img');
+            newImage.setAttribute("src", parse[i].pic)
+            newExtraPath.appendChild(newImage);
+        } else {
+            newExtraPath.innerHTML = "";
+        }
+        newExtraRow.appendChild(newExtraPath);
+        document.getElementById("extraBody").appendChild(newExtraRow);
+    }   
+
+    function stringify(){
+        for(let i=0; i<csvdata.length; i++){
+            json[i] = JSON.stringify(csvdata[i]);
+        }
+    }
+
+    function parse(index){
+        return JSON.parse(json[i]);
     }
 }
-
-//Code that really doesn't matter bc I'm stupid
-    /*if(elementsOnPage.length == 0){
-        //table gets built normally using the elementsOnPage information
-        let newTableRow = document.createElement("tr");
-        for(let i = 0; i<elementsOnPage.length; i++){
-            //first, we create and append all children components to the row
-            
-        }
-    } else {
-        //we empty the array
-        const arraylength = array.length;
-        for(let i=0; i<arraylength; i++){
-            array.shift();
-        }
-        //and then build it using the elementsOnPage information
-
-    }*/

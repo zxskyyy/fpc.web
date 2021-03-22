@@ -2,11 +2,9 @@
 let csvdata = [];
 let page = 1;
 
-//I am gonna fuck git's shit up
-
 //data load
 d3.dsv(";", "../fpc.web/data/pets-citizens.csv").then(
-    function(csvtemp){csvdata = csvtemp; console.log(csvdata); tableStart(5,1)}
+    function(csvtemp){csvdata = csvtemp; console.log(csvdata); tableStart(100,1)}
 );
 
 console.log(csvdata);
@@ -15,28 +13,28 @@ function tableDown(){
     let tableBody = document.getElementById("tableBody");
     tableBody.textContent = '';
     if(page == 1){
-        tableStart(5,1);
+        tableStart(100,1);
     } else {
         page = page -1;
-        tableStart(5,page);
+        tableStart(100,page);
     }
 }
 
 function tableUp(){
     let tableBody = document.getElementById("tableBody");
     tableBody.textContent = '';
-    if(page == 1){
-        tableStart(5,1);
+    if(page == 235){
+        tableStart(100,235);
     } else {
         page = page +1;
-        tableStart(5,page);
+        tableStart(100,page);
     }
 }
 
 function tableStart(pageSize, pageNumber){
     let tableBody = document.getElementById("tableBody");
     tableBody.textContent = '';
-    for(let i = (pageSize*pageNumber)-1; i<(pageNumber*pageSize)+pageSize; i++){
+    for(let i = (pageNumber-1)*100; i<(pageNumber*pageSize)+pageSize; i++){
         if(i>23411){
             break;
         }

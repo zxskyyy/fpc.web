@@ -66,7 +66,6 @@ function tableStart(pageSize, pageNumber){
         newTableRow.appendChild(newRowNeighborhood);
         let newButton = document.createElement('button');
         newButton.innerHTML = "Actualizar";
-        newButton.addEventListener('click', theFunction(newRowMicrochip.innerHTML, pageSize, pageNumber));
         newTableRow.appendChild(newButton);
         document.getElementById("tableBody").appendChild(newTableRow);
 

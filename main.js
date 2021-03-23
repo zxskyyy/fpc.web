@@ -40,7 +40,7 @@ function stringify(){
 }
 
 function parse(index){
-    return JSON.parse(json[i]);
+    return JSON.parse(json[index]);
 }
 
 function tableStart(pageSize, pageNumber){

@@ -6,7 +6,7 @@ let json = [];
 
 //data load
 d3.dsv(";", "../fpc.web/data/pets-citizens.csv").then(
-    function(csvtemp){csvdata = csvtemp; console.log(csvdata); stringify().then(function (){tableStart(100,1);});}
+    function(csvtemp){csvdata = csvtemp; console.log(csvdata); tableStart(100,1);}
 );
 
 console.log(csvdata);
@@ -33,17 +33,6 @@ function tableUp(){
     }
 }
 
-function stringify(){
-    for(let i=0; i<csvdata.length; i++){
-        json[i] = JSON.stringify(csvdata[i]);
-    }
-    return true;
-}
-
-function parse(index){
-    return JSON.parse(json[index]);
-}
-
 function tableStart(pageSize, pageNumber){
     let tableBody = document.getElementById("tableBody");
     tableBody.textContent = '';
@@ -58,22 +47,22 @@ function tableStart(pageSize, pageNumber){
         //we create and append all children components to the row
         //microchip;species;sex;size;potentDangerous;neighborhood
         let newRowMicrochip = document.createElement('th');
-        newRowMicrochip.innerHTML = parse[i].microchip;
+        newRowMicrochip.innerHTML = csvdata[i].microchip;
         newTableRow.appendChild(newRowMicrochip);
         let newRowSpecies = document.createElement('th');
-        newRowSpecies.innerHTML = parse[i].species;
+        newRowSpecies.innerHTML = csvdata[i].species;
         newTableRow.appendChild(newRowSpecies);
         let newRowSex = document.createElement('th');
-        newRowSex.innerHTML = parse[i].sex;
+        newRowSex.innerHTML = csvdata[i].sex;
         newTableRow.appendChild(newRowSex);
         let newRowSize = document.createElement('th');
-        newRowSize.innerHTML = parse[i].size;
+        newRowSize.innerHTML = csvdata[i].size;
         newTableRow.appendChild(newRowSize);
         let newRowPotentDangerous = document.createElement('th');
-        newRowPotentDangerous.innerHTML = parse[i].potentDangerous;
+        newRowPotentDangerous.innerHTML = csvdata[i].potentDangerous;
         newTableRow.appendChild(newRowPotentDangerous);
         let newRowNeighborhood = document.createElement('th');
-        newRowNeighborhood.innerHTML = parse[i].neighborhood;
+        newRowNeighborhood.innerHTML = csvdata[i].neighborhood;
         newTableRow.appendChild(newRowNeighborhood);
         let newButton = document.createElement('button');
         newButton.innerHTML = "Actualizar";
@@ -83,33 +72,33 @@ function tableStart(pageSize, pageNumber){
 
         //the second table with the extra stuff
         let newExtraMicrochip = document.createElement('th');
-        newExtraMicrochip.innerHTML = parse[i].microchip;
+        newExtraMicrochip.innerHTML = csvdata[i].microchip;
         newExtraRow.appendChild(newExtraMicrochip);
         let newExtraRace = document.createElement('th');
-        if(parse[i].race != undefined){
-            newExtraRace.innerHTML = parse[i].race;
+        if(csvdata[i].race != undefined){
+            newExtraRace.innerHTML = csvdata[i].race;
         } else {
             newExtraRace.innerHTML = "";
         }
         newExtraRow.appendChild(newExtraRace);
         let newExtraOwner = document.createElement('th');
-        if(parse[i].owner != undefined){
-            newExtraOwner.innerHTML = parse[i].owner;
+        if(csvdata[i].owner != undefined){
+            newExtraOwner.innerHTML = csvdata[i].owner;
         } else {
             newExtraOwner.innerHTML = "";
         }
         newExtraRow.appendChild(newExtraOwner);
         let newExtraAdress = document.createElement('th');
-        if(parse[i].adress != undefined){
-            newExtraAdress.innerHTML = parse[i].adress;
+        if(csvdata[i].adress != undefined){
+            newExtraAdress.innerHTML = csvdata[i].adress;
         } else {
             newExtraAdress.innerHTML = "";
         }
         newExtraRow.appendChild(newExtraAdress);
         let newExtraPath = document.createElement('th');
-        if(parse[i].pic != undefined){
+        if(csvdata[i].pic != undefined){
             let newImage = document.createElement('img');
-            newImage.setAttribute("src", parse[i].pic)
+            newImage.setAttribute("src", csvdata[i].pic)
             newExtraPath.appendChild(newImage);
         } else {
             newExtraPath.innerHTML = "";

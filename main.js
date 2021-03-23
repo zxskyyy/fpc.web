@@ -37,6 +37,7 @@ function stringify(){
     for(let i=0; i<csvdata.length; i++){
         json[i] = JSON.stringify(csvdata[i]);
     }
+    return true;
 }
 
 function parse(index){

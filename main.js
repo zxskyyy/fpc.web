@@ -6,7 +6,7 @@ let json = [];
 
 //data load
 d3.dsv(";", "../fpc.web/data/pets-citizens.csv").then(
-    function(csvtemp){csvdata = csvtemp; console.log(csvdata); stringify().then(tableStart(100,1));}
+    function(csvtemp){csvdata = csvtemp; console.log(csvdata); stringify(); tableStart(100,1);}
 );
 
 console.log(csvdata);
